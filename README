@@ -1,0 +1,15 @@
+wizsec fafa cloud frontend for google appengine
+
+init:
+
+git submodule update --init
+
+develop:
+
+mvn install
+mvn appengine:devserver
+
+deploy:
+
+appcfg.py update.
+
