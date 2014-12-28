@@ -3,7 +3,7 @@
 /* jasmine specs for filters go here */
 
 describe('filter', function() {
-  beforeEach(module('myApp.filters'));
+  beforeEach(module('wizsec.filters'));
 
   describe('interpolate', function() {
     beforeEach(module(function($provide) {

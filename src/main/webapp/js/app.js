@@ -1,8 +1,8 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', [
-    'myApp.filters', 'myApp.services', 'myApp.directives'
+angular.module('wizsec', [
+    'wizsec.filters', 'wizsec.services', 'wizsec.directives'
 ]).config([
     '$routeProvider', function($routeProvider) {
       $routeProvider.when('/view1', {
