@@ -87,16 +87,18 @@ public class SendMessageServlet extends HttpServlet {
    */
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-	  
 	  response.setContentType("application/json");
 	  SimpleAjaxResponse ajaxResponse = new SimpleAjaxResponse();
 	  Gson gson = new Gson();
 	  
-    if (request.getHeader(HEADER_QUEUE_NAME) == null) {
-    	throw new IOException("Missing header " + HEADER_QUEUE_NAME);
-    }
+	  String retryCountHeader = request.getHeader(HEADER_QUEUE_COUNT);
+	  
+	  if (request.getHeader(HEADER_QUEUE_NAME) == null) {
+		  // throw new IOException("Missing header " + HEADER_QUEUE_NAME);
+		  retryCountHeader = "0";
+	  }
     
-    String retryCountHeader = request.getHeader(HEADER_QUEUE_COUNT);
+    
     logger.fine("retry count: " + retryCountHeader);
     
     if (retryCountHeader != null) {
