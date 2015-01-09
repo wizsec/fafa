@@ -101,9 +101,12 @@ public class SendBtc extends HttpServlet {
 			
 		} catch (AddressFormatException e) {
 			jsonResponse.setMessage(e.toString());
-			jsonResponse.setStatus(500);
+			jsonResponse.setStatus(406);
 		} catch (InsufficientMoneyException e) {
 			jsonResponse.setStatus(204);
+			jsonResponse.setMessage(e.toString());
+		} catch (NumberFormatException e) {
+			jsonResponse.setStatus(400);
 			jsonResponse.setMessage(e.toString());
 		}
 		
